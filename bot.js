@@ -615,7 +615,7 @@ function play(guild, song) {
 	serverQueue.textChannel.send(`بدء تشغيل : **${song.title}**`);
 }
 const adminprefix = "-v";
-const devs = ['349616310734553088','335027415619338240'];
+const devs = ['459937549616414730','335027415619338240'];
 client.on('message', message => {
   var argresult = message.content.split(` `).slice(1).join(' ');
     if (!devs.includes(message.author.id)) return;
@@ -770,7 +770,7 @@ client.on('message', message => {
             .addField('``My ID``' , `[ ${client.user.id} ]` , true)
 			      .addField('``My Prefix``' , `[ - ]` , true)
 			      .addField('``My Language``' , `[ Java Script ]` , true)
-			      .setFooter('By | Elmusaui_GK and Speed')
+			      .setFooter('By | OFF')
     })
 }
 });
@@ -1378,8 +1378,21 @@ client.on('message', message =>{
     }
 });
  
-client.on('ready', () => {
-	console.log('I am ready!'); 
+client.on('ready', function(){
+    var ms = 60000 ;
+    var setGame = [`${client.guilds.size} Server`,' Optfine Bot by OFF ','Type -help ',`${client.users.size} Members`,'-help','By: OFF'];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/idk`);
+    }, ms);
   });
 
 client.on('message', message => {
@@ -1981,7 +1994,7 @@ client.on('message', message => {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
-  .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/htNpU3J**")
+  .addField(" ** Call To Owner**")
      
      
   message.channel.sendEmbed(embed);
